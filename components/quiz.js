@@ -94,12 +94,6 @@ window.QuizComponent = {
                             </div>
                         `).join('')}
                     </div>
-
-                    ${this.isReviewing ? `
-                        <div class="explanation">
-                            <strong>Объяснение:</strong> ${question.explanation}
-                        </div>
-                    ` : ''}
                 </div>
 
                 <div class="quiz-controls">
@@ -179,10 +173,16 @@ window.QuizComponent = {
 
         // Show correct/incorrect status
         const options = document.querySelectorAll('.option');
+
+        // Remove selected class from all options first
+        options.forEach(opt => opt.classList.remove('selected'));
+
+        // Add correct class to correct answers
         correctAnswer.forEach(i => {
             options[i].classList.add('correct');
         });
 
+        // Add incorrect class to wrong user answers
         if (!isCorrect) {
             userAnswer.forEach(i => {
                 if (!correctAnswer.includes(i)) {
@@ -192,7 +192,23 @@ window.QuizComponent = {
         }
 
         this.isReviewing = true;
-        this.renderQuestion();
+
+        // Show explanation without re-rendering
+        const questionCard = document.querySelector('.question-card');
+        if (questionCard) {
+            const explanationHtml = `
+                <div class="explanation">
+                    <strong>Объяснение:</strong> ${question.explanation}
+                </div>
+            `;
+            questionCard.insertAdjacentHTML('beforeend', explanationHtml);
+        }
+
+        // Update next button
+        const nextBtn = document.getElementById('quiz-next');
+        if (nextBtn) {
+            nextBtn.textContent = 'Далее';
+        }
     },
 
     nextQuestion() {

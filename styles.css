@@ -355,15 +355,19 @@ main {
 }
 
 .option.correct {
-    background: var(--success);
-    color: white;
-    border-color: var(--success);
+    background: #27ae60 !important;
+    color: white !important;
+    border: 3px solid #1e8449 !important;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(39, 174, 96, 0.5);
 }
 
 .option.incorrect {
-    background: var(--error);
-    color: white;
-    border-color: var(--error);
+    background: #e74c3c !important;
+    color: white !important;
+    border: 3px solid #c0392b !important;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
 }
 
 .quiz-controls {
