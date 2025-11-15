@@ -37,17 +37,28 @@ class App {
     // Data Loading
     async loadData() {
         try {
-            const [cheatsheets, flashcards, questions] = await Promise.all([
-                fetch('data/cheatsheets.json').then(r => r.json()),
-                fetch('data/flashcards.json').then(r => r.json()),
-                fetch('data/questions.json').then(r => r.json())
-            ]);
+            // Use embedded data if available (for file:// protocol support)
+            if (window.EXAM_DATA) {
+                this.data.cheatsheets = window.EXAM_DATA.cheatsheets;
+                this.data.flashcards = window.EXAM_DATA.flashcards;
+                this.data.questions = window.EXAM_DATA.questions;
+                console.log('Data loaded successfully from embedded source');
+            } else {
+                // Fallback to fetch for local server
+                const [cheatsheets, flashcards, questions] = await Promise.all([
+                    fetch('data/cheatsheets.json').then(r => r.json()),
+                    fetch('data/flashcards.json').then(r => r.json()),
+                    fetch('data/questions.json').then(r => r.json())
+                ]);
 
-            this.data.cheatsheets = cheatsheets;
-            this.data.flashcards = flashcards;
-            this.data.questions = questions;
+                this.data.cheatsheets = cheatsheets;
+                this.data.flashcards = flashcards;
+                this.data.questions = questions;
+                console.log('Data loaded successfully from JSON files');
+            }
         } catch (error) {
             console.error('Error loading data:', error);
+            alert('Ошибка загрузки данных. Убедитесь, что все файлы на месте.');
         }
     }
 
