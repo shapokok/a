@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychology of Management — Exam Prep</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Psychology of Management</h1>
+            <p class="subtitle">Exam Preparation Tool</p>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </header>
+
+        <main id="main-content">
+            <!-- Home Screen -->
+            <div id="home-screen" class="screen active">
+                <div class="menu-grid">
+                    <button class="menu-button" data-screen="cheatsheets">
+                        <span class="menu-icon">📚</span>
+                        <h2>Cheat Sheets</h2>
+                        <p>Краткие шпоры по всем темам</p>
+                    </button>
+
+                    <button class="menu-button" data-screen="flashcards">
+                        <span class="menu-icon">🎴</span>
+                        <h2>Flashcards</h2>
+                        <p>Карточки для запоминания</p>
+                    </button>
+
+                    <button class="menu-button" data-screen="quiz">
+                        <span class="menu-icon">✅</span>
+                        <h2>Quiz</h2>
+                        <p>Тесты по каждой теме</p>
+                    </button>
+
+                    <button class="menu-button" data-screen="exam">
+                        <span class="menu-icon">🎓</span>
+                        <h2>Exam Mode</h2>
+                        <p>Финальный экзамен</p>
+                    </button>
+
+                    <button class="menu-button" data-screen="progress">
+                        <span class="menu-icon">📊</span>
+                        <h2>Progress</h2>
+                        <p>Ваш прогресс обучения</p>
+                    </button>
+
+                    <button class="menu-button" data-screen="search">
+                        <span class="menu-icon">🔍</span>
+                        <h2>Search</h2>
+                        <p>Поиск по материалам</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cheat Sheets Screen -->
+            <div id="cheatsheets-screen" class="screen">
+                <button class="back-button">← Назад</button>
+                <h2>Cheat Sheets</h2>
+                <div id="cheatsheets-content"></div>
+            </div>
+
+            <!-- Flashcards Screen -->
+            <div id="flashcards-screen" class="screen">
+                <button class="back-button">← Назад</button>
+                <h2>Flashcards</h2>
+                <div id="flashcards-week-selector"></div>
+                <div id="flashcards-content"></div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="screen">
+                <button class="back-button">← Назад</button>
+                <h2>Quiz</h2>
+                <div id="quiz-week-selector"></div>
+                <div id="quiz-content"></div>
+            </div>
+
+            <!-- Exam Screen -->
+            <div id="exam-screen" class="screen">
+                <button class="back-button">← Назад</button>
+                <h2>Exam Mode</h2>
+                <div id="exam-content"></div>
+            </div>
+
+            <!-- Progress Screen -->
+            <div id="progress-screen" class="screen">
+                <button class="back-button">← Назад</button>
+                <h2>Your Progress</h2>
+                <div id="progress-content"></div>
+            </div>
+
+            <!-- Search Screen -->
+            <div id="search-screen" class="screen">
+                <button class="back-button">← Назад</button>
+                <h2>Search</h2>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Поиск по терминам, моделям, определениям...">
+                </div>
+                <div id="search-results"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>10 тем • 150+ карточек • 200+ вопросов</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="components/cheatsheet.js"></script>
+    <script src="components/flashcards.js"></script>
+    <script src="components/quiz.js"></script>
+    <script src="components/exam.js"></script>
+</body>
+</html>
