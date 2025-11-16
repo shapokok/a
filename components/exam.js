@@ -28,7 +28,7 @@ window.ExamComponent = {
             <div class="quiz-results">
                 <h3>Правила экзамена</h3>
                 <ul style="text-align: left; max-width: 600px; margin: 2rem auto;">
-                    <li style="margin-bottom: 1rem;">30 случайных вопросов из всех 10 недель</li>
+                    <li style="margin-bottom: 1rem;">40 случайных вопросов из всех 10 недель</li>
                     <li style="margin-bottom: 1rem;">Ограничение по времени: 40 минут</li>
                     <li style="margin-bottom: 1rem;">Нельзя вернуться к предыдущим вопросам</li>
                     <li style="margin-bottom: 1rem;">После завершения вы увидите подробный разбор</li>
@@ -56,7 +56,7 @@ window.ExamComponent = {
         this.timeRemaining = this.timeLimit;
 
         // Generate random questions
-        this.examQuestions = this.generateRandomQuestions(30);
+        this.examQuestions = this.generateRandomQuestions(40);
 
         // Start timer
         this.startTimer();
